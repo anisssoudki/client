@@ -31,10 +31,24 @@ renderAdmin(stream) {
     }
 }
 
+showLive(stream) {
+   
+    if(!(stream.user_id === this.props.CurrentUserId)  &&  this.props.isSignedIn)
+    return(
+        
+        <div className="ui green tiny header">
+            User is online
+            <div><i class="video icon"></i></div>
+            
+            </div>
+            
+    )
 
-
-
+ 
+}
+      
 renderList() {
+    
     return this.props.streams.map(stream => {
         return(
             <div className="item" key={stream.id}>
@@ -43,6 +57,7 @@ renderList() {
                 <div className="content">
                     <Link to={`/streams/${stream.id}`} className="header">{stream.title}</Link>
                     <div className="description">{stream.description}</div>
+                    {this.showLive(stream)}
                 </div>
                
             </div>

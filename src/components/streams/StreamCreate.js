@@ -32,11 +32,12 @@ const className = `field ${meta.error && meta.touched ? 'error': ''}`
         )}
 
 onSubmit = (formValues) => {
-   this.props.onSubmit(formValues)
+  
+   this.props.createStream(formValues)
 }
 
     render() {
-console.log(this.props)
+
     return (
         <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
          <h1> Create a new Stream </h1> 
